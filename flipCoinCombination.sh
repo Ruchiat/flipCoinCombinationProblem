@@ -45,3 +45,30 @@ do
 done
 
 
+#Loop to create a Doublet Combination. and
+#Store the doublet combination as well as the percentage.
+
+declare -A doubletDictionary
+
+for ((j=1;j<=5;j++))
+do
+        flip=$((RANDOM%4))
+        case $flip in
+                0) x=${doubletDictionary["HH"]}
+		   doubletDictionary["HH"]=$((++x))
+                	;;
+                1)  x=${doubletDictionary["HT"]}
+                   doubletDictionary["HT"]=$((++x))
+                        ;;
+		2) x=${doubletDictionary["TH"]}
+                   doubletDictionry["TH"]=$((++x))
+                        ;;
+                3) x=${doubletDictionary["TT"]}
+                   doubletDictionary["TT"]=$((++x))
+                        ;;
+        esac
+done
+for index in ${!doubletDictionary[@]}
+do
+        echo "$index: ${doubletDictionary[$index]},"
+done
