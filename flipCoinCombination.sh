@@ -72,3 +72,44 @@ for index in ${!doubletDictionary[@]}
 do
         echo "$index: ${doubletDictionary[$index]},"
 done
+
+
+#triplet combintion
+
+for ((k=1;k<=5;k++))
+do
+        flip=$((RANDOM%8))
+        case $flip in
+                0) y=${Triplet["HHH"]}
+                   Triplet["HHH"]=$((++y))
+                        ;;
+		1) y=${Triplet["HHT"]}
+                   Triplet["HHT"]=$((++y))
+                        ;;
+		2) y=${Triplet["HTH"]}
+                   Triplet["HTH"]=$((++y))
+                        ;;
+		3) y=${Triplet["THH"]}
+                   Triplet["THH"]=$((++y))
+                        ;;
+		4) y=${Triplet["THT"]}
+                   Triplet["THT"]=$((++y))
+                        ;;
+		5) y=${Triplet["TTH"]}
+                   Triplet["TTH"]=$((++y))
+                        ;;
+		6) y=${Triplet["HTT"]}
+                   Triplet["HTT"]=$((++y))
+                        ;;
+		7) y=${Triplet["TTT"]}
+                   Triplet["TTT"]=$((++y))
+                        ;;
+
+        esac
+done
+for index in ${!Triplet[@]}
+do
+	echo "$index: ${Triplet[$index]},"
+done
+
+
